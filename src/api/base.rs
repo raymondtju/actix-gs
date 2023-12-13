@@ -15,7 +15,11 @@ async fn server_time() -> impl Responder {
   HttpResponse::Ok().body(chrono::Utc::now().to_string())
 }
 
-pub fn services() -> Resource {
-  resource("/").route(get().to(index));
-  resource("/time").route(get().to(server_time))
+pub fn services() -> Vec<Resource> {
+  let mut resources = Vec::new();
+
+  resources.push(resource("/").route(get().to(index)));
+  resources.push(resource("/time").route(get().to(server_time)));
+
+  resources
 }
