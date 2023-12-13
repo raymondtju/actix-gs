@@ -25,6 +25,8 @@ version = "0.1.0"
 dependencies = [
  "actix-web",
  "cargo-watch",
+ "chrono",
+ "log",
  "serde",
  "serde_json",
 ]
